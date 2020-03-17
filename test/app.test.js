@@ -19,13 +19,7 @@ describe('createResponse', () => {
     return request(app)
       .get('/blue')
       .then(res => {
-        expect(res.text).toEqual(`
-            <html>
-              <body>
-                <h1>This is red</h1>
-              </body>
-            </html>
-            `);
+        expect(res.text).toEqual('<html><body><h1>This is red</h1></body></html>');
       });
   });
   it('gets green html page', () => {
