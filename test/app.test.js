@@ -6,15 +6,18 @@ describe('createResponse', () => {
     return request(app)
       .get('/red')
       .then(res => {
-        expect(res.text).toEqual(`
-            <html>
-              <body>
-                <h1>This is red</h1>
-              </body>
-            </html>
-            `);
+        expect(res.text).toEqual('<html><body><h1>This is red</h1></body></html>');
       });
   });
+
+  it('gets green html page', () => {
+    return request(app)
+      .get('/green')
+      .then(res => {
+        expect(res.text).toEqual('<html><body><h1>This is red</h1></body></html>');
+      });
+  });
+
   it('gets blue html page', () => {
     return request(app)
       .get('/blue')
@@ -22,17 +25,13 @@ describe('createResponse', () => {
         expect(res.text).toEqual('<html><body><h1>This is red</h1></body></html>');
       });
   });
-  it('gets green html page', () => {
+
+  it('gets /', () => {
     return request(app)
-      .get('/green')
+      .get('/')
       .then(res => {
-        expect(res.text).toEqual(`
-            <html>
-              <body>
-                <h1>This is red</h1>
-              </body>
-            </html>
-            `);
+        expect(res.text).toEqual('hi');
       });
   });
+  
 });
